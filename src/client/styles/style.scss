@@ -1,0 +1,44 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    height: 100vh;
+    font-size: 16px;
+    color: #000;
+    line-height: 1.4;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1rem;
+    grid-template-rows: auto;
+    grid-template-areas:
+        '. h .'
+        '. m .'
+        '. f .';
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    grid-area: h;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+main {
+    grid-area: m;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    grid-area: f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

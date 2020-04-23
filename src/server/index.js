@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.static('dist'));
 
 const textApi = new Aylien({
-  application_id: "ef81c1c2",
-  application_key: "45a709371915f5c7bddee79ca6757ced"
+  application_id: `${process.env.APP_ID}`,
+  application_key: `${process.env.APP_KEY}`
 });
 
 app.get('/', (req, res) => {
