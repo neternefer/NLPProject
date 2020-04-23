@@ -29,6 +29,7 @@ header {
     justify-content: start;
     align-items: center;
     font-size: 2rem;
+    padding: .5rem 0;
 }
 
 main {
@@ -37,6 +38,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 1.1rem;
 }
 
 footer {
@@ -84,4 +86,19 @@ input[type='submit'] {
 
 span {
     color: green;
+}
+
+@media (min-width: 480px) {
+    .grid {
+        grid-template-rows: 5rem auto 3rem;
+        grid-template-columns: 4rem 1fr 4rem;
+    }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+
 }
