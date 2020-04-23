@@ -13,6 +13,8 @@ const submitHandler = async(e) => {
     })
       .then(res => res.json())
       .then(data => {
+        document.getElementById('result').style.visibility = 'visible';
+        document.getElementById('form').reset();
         const values = ['polarity', 'subjectivity', 'polarity_confidence', 'subjectivity_confidence'];
         values.forEach((value) => {
           document.getElementById(value).innerHTML = data[value];
