@@ -11,7 +11,7 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: 2rem 1fr 1rem;
+    grid-template-columns: 2rem 1fr 2rem;
     grid-template-rows: auto;
     grid-template-areas:
         '. h .'
@@ -26,6 +26,7 @@ header {
     display: flex;
     justify-content: start;
     align-items: center;
+    font-size: 2rem;
 }
 
 main {
@@ -41,4 +42,28 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
+}
+
+.flex-item {
+    align-self: center;
+    border-top: 2px solid green;
+    padding: .5rem 0;
+    margin-bottom: 1rem;
+}
+
+textarea {
+    border:none;
+}
+
+input[type='submit'] {
+    background-color: green;
+    border: none;
+    color: #fff;
+    padding: 1rem;
+    margin: 1rem auto;
+}
+
+span {
+    color: green;
 }
