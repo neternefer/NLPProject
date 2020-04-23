@@ -38,6 +38,6 @@ module.exports = {
         new MiniCSSExtractPlugin({
             filename: "[name].scss",
         }),
-        new WorkboxPlugin.GenerateSW()
+        // new WorkboxPlugin.GenerateSW()
     ]
 };
