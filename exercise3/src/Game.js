@@ -23,8 +23,7 @@ class Game extends React.Component {
                 <div className="equation">
                     <p className="text">{`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}</p>
                 </div>
-                <Button onChoice={this.resetGame}/>
-                <Button onChoice={this.resetGame}/>
+                <Buttons onChoice={this.resetGame}/>
             </div>
         )
     }
