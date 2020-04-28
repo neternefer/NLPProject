@@ -1,2 +1,3 @@
 # Playground
-Bits and snippets
+React Nanodegree exercises
+
