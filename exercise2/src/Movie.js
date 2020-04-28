@@ -3,23 +3,21 @@ import React, { Component } from 'react'
 
 class Movie extends Component {
     render() {
-        const { movie, profiles, users, likedMovies } = this.props;
+        const {movieData, users, likedUsers } = this.props;
 
         return (
-            <div>
-                <h2>{movie.name}</h2>
+            <li key={movieData.id}>
+                <h2>{movieData.name}</h2>
                 <p>Liked by: </p>
-                <ul>
-                    {likedMovies.includes(movie.id.toString()) ?
-                        profiles.map(profile => {
-                            if(profile.favoriteMovieID === movie.id.toString()){
-                                const user = profile.userID
-                                return (<li key={movie.id}>{users[user].name}</li>)
-                            }
-                        }) : <li key={movie.id}>Noone has liked this movie so far</li>
-                    }
-                </ul>
-            </div>
+                {!likedUsers || likedUsers.length === 0 ?
+                    (<p>Noone has liked this movie so far</p>) :
+                    (<ul>
+                        {likedUsers.map(id => {
+                            return(<li key={id}>{users[id].name}</li>);
+                        })}
+                    </ul>)
+                }
+            </li>
         )
     }
 }

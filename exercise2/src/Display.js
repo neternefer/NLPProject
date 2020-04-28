@@ -2,22 +2,14 @@ import React, { Component } from 'react'
 import Movie from './Movie'
 
 class Display extends Component {
-    constructor(props) {
-        super(props);
-        this.likedMovies = []
-    }
     render(){
-        const { profiles, users, movies } = this.props;
-        profiles.map(profile => {
-            if(!this.likedMovies.includes(profile.favoriteMovieID)) {
-                this.likedMovies.push(profile.favoriteMovieID)
-            }
-        })
-        const movieKeys = Object.keys(movies)
+        const { users, movies, likedMovies } = this.props;
+        const movieKeys = Object.keys(movies);
+        const movieList = movieKeys.map(id =>(
+            <Movie key={id} movieData={movies[id]} users={users} likedUsers={likedMovies[id]}/>
+        ));
         return (
-        movieKeys.map(key => {
-            return(<Movie movie={movies[key]} profiles={profiles} users={users} likedMovies={this.likedMovies}/>)
-        })
+            <ul>{movieList}</ul>
         )
     }
 }

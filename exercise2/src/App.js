@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Movie from './Movie'
 import Display from './Display'
 
 /*
@@ -100,11 +98,22 @@ const movies = {
 };
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.likedMovies = {};
+    profiles.forEach(profile => {
+      if(this.likedMovies[profile.favoriteMovieID]) {
+        this.likedMovies[profile.favoriteMovieID].push(profile.userID)
+      } else {
+        this.likedMovies[profile.favoriteMovieID] = [profile.userID]
+      }
+    });
+  };
   render() {
     return (
       <div className="App">
         <h2>How Popular is Your Favorite Movie?</h2>
-        <Display users={users} movies={movies} profiles={profiles}/>
+        <Display profiles={profiles} users={users} movies={movies} likedMovies={this.likedMovies}/>
       </div>
     );
   }
