@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from './Button'
+import ItemsList from './ItemsList'
 import './App.css'
 
 class Form extends Component {
@@ -48,6 +49,7 @@ class Form extends Component {
                 </form>
                 <Button onClick={this.deleteLastItem} disabled={this.noItemsFound()}>
                 Delete Last Item</Button>
+                <ItemsList items={this.state.items} />
             </div>
         )
     }
