@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Score = (props) => {
+const Score = (props) => {
     return (
     <p>Your Score: {this.props.numCorrect}/{this.props.numQuestions}</p>
     )
