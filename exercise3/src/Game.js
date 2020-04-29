@@ -32,8 +32,17 @@ class Game extends React.Component {
         this.resetGame(newValues);
         const userAnswer = checkAnswer(e.target.name);
         this.props.inputHandle(userAnswer);
-    }
+    };
 
-}
+    checkAnswer = (clicked) => {
+        const { value1, value2, value3, proposedAnswer } = this.state;
+        const correctAnswer = value1 + value2 + value3;
+        return (
+            (correctAnswer === proposedAnswer && clicked === 'true') ||
+            (correctAnswer !== proposedAnswer && clicked === 'false')
+        )
+    };
+
+};
 
 export default Game;
