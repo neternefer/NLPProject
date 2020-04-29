@@ -27,6 +27,12 @@ class Game extends React.Component {
         }));
     };
 
+    gameLogic = (e) => {
+        const newValues = this.randomValues();
+        this.resetGame(newValues);
+        const userAnswer = checkAnswer(e.target.name);
+        this.props.inputHandle(userAnswer);
+    }
 
 }
 
