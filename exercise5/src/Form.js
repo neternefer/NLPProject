@@ -45,8 +45,9 @@ class Form extends Component {
                 value="Add"
                 onClick={this.addItem}>Add</Button>
                 </form>
+                <Button onClick={this.deleteLastItem} disabled={this.noItemsFound()}>
+                Delete Last Item</Button>
             </div>
-
         )
     }
 }
