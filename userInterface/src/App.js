@@ -12,6 +12,14 @@ React and prepare you for your first project.
 The instructions for this project are located in the `instructions.md` file.
 */
 
+const users = [
+  {
+    firstName: 'Max', lastName: 'Mad', username: 'MM', gamesPlayed: 0, players: ['MM', 'JJ', 'Franca'],
+    firstName: 'Jody', lastName: 'James', username: 'JJ', gamesPlayed: 0, players: ['MM', 'JJ', 'Franca'],
+    firstName: 'Ciapulek', lastName: 'Janicki', username: 'Franca', gamesPlayed: 0, players: ['MM', 'JJ', 'Franca']
+  }
+]
+
 class App extends Component {
   render() {
     return (
