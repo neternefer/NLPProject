@@ -13,8 +13,10 @@ class Game extends React.Component {
     };
 
     randomValues = () => {
-
-    }
+        const values = Array.from({length: 3}, () => Math.floor(Math.random() * 100));
+        const answer = Math.floor(Math.random() *3) + values.reduce((total, curr) => total + curr);
+        return [...values, answer];
+    };
 }
 
 export default Game;
