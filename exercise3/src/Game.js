@@ -27,10 +27,11 @@ class Game extends React.Component {
         }));
     };
 
+
     gameLogic = (e) => {
         const newValues = this.randomValues();
         this.resetGame(newValues);
-        const userAnswer = checkAnswer(e.target.name);
+        const userAnswer = this.checkAnswer(e.target.name);
         this.props.inputHandle(userAnswer);
     };
 
@@ -42,6 +43,18 @@ class Game extends React.Component {
             (correctAnswer !== proposedAnswer && clicked === 'false')
         )
     };
+
+    render() {
+        const { value1, value2, value3, proposedAnswer } = this.state;
+        return (
+            <div className="game">
+                <p>{`${value1} + ${value2} + ${value3} = ${proposedAnswer}`}</p>
+                <button name="true" onClick={this.gameLogic}>TRUE</button>
+                <button name="false" onClick={this.gameLogic}>FALSE</button>
+            </div>
+        )
+    }
+
 
 };
 

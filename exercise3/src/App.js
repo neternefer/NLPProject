@@ -4,8 +4,8 @@ import Score from './Score';
 
 class App extends React.Component {
   state = {
-    numCorrect = 0,
-    numQuestions = 0
+    numCorrect: 0,
+    numQuestions: 0
   };
 
   inputHandle = (userAnswer) => {
@@ -21,10 +21,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="dashboard">
-        <h2>Mental Math</h2>
-        <Game inputHandle={this.inputHandle} />
-        <Score numCorrect={this.numCorrect} numQuestions={this.numQuestions} />
+      <div className="App">
+        <div className="dashboard">
+          <h2>Mental Math</h2>
+          <Game inputHandle={this.inputHandle} />
+          <Score numCorrect={this.state.numCorrect} numQuestions={this.state.numQuestions} />
+        </div>
       </div>
     )
   }
