@@ -8,10 +8,13 @@ class Game extends React.Component {
             value1: initialValues[0],
             value2: initialValues[1],
             value3: initialValues[2],
-            propsedAnswer: initialValues[3]
+            proposedAnswer: initialValues[3]
         };
     };
 
+    randomValues = () => {
+
+    }
 }
 
 export default Game;
