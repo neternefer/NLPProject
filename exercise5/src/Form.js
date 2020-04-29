@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from './Button'
+import './App.css'
 
 class Form extends Component {
     state = {
