@@ -4,44 +4,26 @@ import UserInputs from './UserInputs'
 
 class CreateUser extends Component {
     state = {
-        player: {
-            firstName: '',
-            lastName: '',
-            username: '',
-            gamesPlayed: 0,
-        },
-        players: []
+        firstName: '',
+        lastName: '',
+        username: ''
     };
-
-    addNewPlayer = (username) => {
-        if(!this.state.players.includes(username)) {
-            this.setState((oldState) => ({
-                players: oldState.players.push(username)
-            }))
-        }
-    }
-
-    handleInput = (e) => {
-
-    }
-
-    checkInput = (e) => {
-        if(!e.target.value) {
-            alert('This field can\'t be empty)
-        }
-    }
 
 
     render() {
         return (
             <div className="create-user">
                 <form className="user-input">
-                    {Object.keys(this.state.player).map((k, id) => {
-                        <input type="text" id={id}
-                        value={this.state.player[k]}
-                        onChange={this.handleInput}>Enter your {k}</input>
-                    })}
-                    <AddUser fields={this.state.player} click={this.addNewPlayer}/>
+                    <label htmlFor="firstname">Enter your first name</label>
+                    <input id="firstname" type="text" value={this.state.firstName}
+                    onChange={(e) => this.handleFname(e.target.value)}></input>
+                    <label htmlFor="lastname">Enter your last name</label>
+                    <input id="lastname" type="text" value={this.state.lastName}
+                    onChange={(e) => this.handleLname(e.target.value)}></input>
+                     <label htmlFor="username">Enter your username</label>
+                    <input id="username" type="text" value={this.state.username}
+                    onChange={(e) => this.handleUname(e.target.value)}></input>
+                    <AddUser fields={this.state.player} click={this.addNewPlayer} disabled={this.correctInput}/>
                 </form>
             </div>
 

@@ -21,6 +21,17 @@ const users = [
 ]
 
 class App extends Component {
+  state = {
+    players: []
+  }
+
+  newPlayer = (player) => {
+    thihs.gamesPlayed = 0;
+    this.setState((oldState) => ({
+      players: [...oldState.players, player]
+    }))
+  }
+
   render() {
     return (
       <div className="App">
@@ -28,8 +39,8 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <CreateUser />
-        <ShowUsers />
+        <CreateUser players={this.state.players} onNewPlayer={this.newPlayer}/>
+        <ShowUsers players={this.state.players}/>
       </div>
     );
   }

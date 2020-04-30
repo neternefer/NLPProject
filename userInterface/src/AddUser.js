@@ -3,10 +3,9 @@ import UserInput from './UserInput'
 
 class AddUser extends Component {
     render() {
-        const { fname, lname, uname } = this.props.fields;
         return (
             <div className="add-user">
-                <button onClick={this.props.click}></button>
+                <button onClick={this.props.click} disabled={this.props.correctInput}></button>
             </div>
         )
     }
