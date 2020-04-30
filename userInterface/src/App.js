@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   newPlayer = (player) => {
-    thihs.gamesPlayed = 0;
+    this.gamesPlayed = 0;
     this.setState((oldState) => ({
       players: [...oldState.players, player]
     }))
