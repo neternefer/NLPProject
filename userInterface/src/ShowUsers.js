@@ -7,7 +7,8 @@ class ShowUsers extends Component {
         return (
             <div className="show-users">
                 {this.props.players.map((p) => {
-                    <User username={p.username} games={p.gamesPlayed}/>
+                    console.log(this.props.players)
+                    return <User key={p.username} username={p.username} games={p.gamesPlayed}/>
                 })}
             </div>
         )

@@ -13,14 +13,16 @@ class CreateUser extends Component {
 
     handleChange = (e) => {
         const value = e.target.value;
-        this.setState(() => ({
+        console.log(value)
+        this.setState({
             ...this.state.player,
             [e.target.name]: value
-        }))
+        })
     };
 
     playerExists = (username) => {
         for(const player in this.props.players) {
+            console.log(this.props.players)
             if(player.username === username) {
                 return true;
             }
@@ -42,6 +44,7 @@ class CreateUser extends Component {
         const playerExists = this.playerExists(this.state.player.username)
         if(!playerExists) {
             this.props.newPlayer(this.state.player)
+            console.log(this.props.players)
         }
         this.setState(() => ({
             playerExists
@@ -53,16 +56,16 @@ class CreateUser extends Component {
             <div className="create-user">
                 <form className="user-input" onSubmit={this.handleSubmit}>
                     <label htmlFor="firstname">Enter your first name</label>
-                    <input id="firstname" type="text"
-                    name="firstName" value={this.state.firstName}
+                    <input id="firstname"
+                    name="firstName" value={this.state.player.firstName}
                     onChange={this.handleChange}></input>
                     <label htmlFor="lastname">Enter your last name</label>
-                    <input id="lastname" type="text"
-                    name="lastName" value={this.state.lastName}
+                    <input id="lastname"
+                    name="lastName" value={this.state.player.lastName}
                     onChange={this.handleChange}></input>
                      <label htmlFor="username">Enter your username</label>
-                    <input id="username" type="text"
-                    name="username" value={this.state.username}
+                    <input id="username"
+                    name="username" value={this.state.player.username}
                     onChange={this.handleChange}></input>
                     <AddUser disabled={this.isEmpty}/>
                     {this.state.playerExists

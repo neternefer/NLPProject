@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AddUser = () => {
+const AddUser = (props) => {
     return (
         <div className="add-user">
-            <button disabled={this.props.isEmpty}></button>
+            <button disabled={props.isEmpty}></button>
         </div>
     )
 };

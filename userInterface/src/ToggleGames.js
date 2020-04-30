@@ -1,9 +1,9 @@
 import React from 'react'
 
 
-const ToggleGames = () => {
+const ToggleGames = (props) => {
     return (
-        <button onClick={this.props.handleToggle} value="Hide games"></button>
+        <button onClick={props.handleToggle} value="Hide games"></button>
     )
 };
 

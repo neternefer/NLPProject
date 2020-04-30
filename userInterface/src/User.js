@@ -21,13 +21,14 @@ class User extends Component {
     };
 
     render() {
+        console.log(this.props)
         return (
             <div className="user">
-                {this.state.hidden
+                {this.state.hidden === true
                 ? <p>{this.props.username} played /* games</p>
-                : <p>{this.props.username} played {this.props.gamesPlayed} games</p>
+                : <p>{this.props.username} played {this.props.games} games</p>
                 }
-                <ToggleGames value="Hide games" onClick={handleToggle}/>
+                <ToggleGames value="Hide games" onClick={this.handleToggle}/>
             </div>
         )
     };

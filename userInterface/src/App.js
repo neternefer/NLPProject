@@ -12,13 +12,6 @@ React and prepare you for your first project.
 The instructions for this project are located in the `instructions.md` file.
 */
 
-const users = [
-  {
-    firstName: 'Max', lastName: 'Mad', username: 'MM', gamesPlayed: 0, players: ['MM', 'JJ', 'Franca'],
-    firstName: 'Jody', lastName: 'James', username: 'JJ', gamesPlayed: 0, players: ['MM', 'JJ', 'Franca'],
-    firstName: 'Ciapulek', lastName: 'Janicki', username: 'Franca', gamesPlayed: 0, players: ['MM', 'JJ', 'Franca']
-  }
-]
 
 class App extends Component {
   state = {
@@ -28,8 +21,9 @@ class App extends Component {
   newPlayer = (player) => {
     this.gamesPlayed = 0;
     this.setState((oldState) => ({
-      players: [...oldState.players, player]
+      players: ['BLA']//oldState.players.push(player)
     }))
+    console.log(this.state.players)
   }
 
   render() {
@@ -39,7 +33,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <CreateUser players={this.state.players} onNewPlayer={this.newPlayer}/>
+        <CreateUser players={this.state.players} newPlayer={this.newPlayer}/>
         <ShowUsers players={this.state.players}/>
       </div>
     );
