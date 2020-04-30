@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class ToggleGames extends Component {
-    render() {
-        return (
-            <button onClick={this.props.handleToggle} value="Hide games"></button>
-        )
-    }
-}
+
+const ToggleGames = () => {
+    return (
+        <button onClick={this.props.handleToggle} value="Hide games"></button>
+    )
+};
 
 export default ToggleGames
