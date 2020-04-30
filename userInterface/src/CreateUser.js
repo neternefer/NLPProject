@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import AddUser from './AddUser';
-import UserInputs from './UserInputs'
 
 class CreateUser extends Component {
     state = {
@@ -65,7 +64,10 @@ class CreateUser extends Component {
                     <input id="username" type="text"
                     name="username" value={this.state.username}
                     onChange={this.handleChange}></input>
-                    <AddUser players={this.props.players} disabled={this.isEmpty}/>
+                    <AddUser disabled={this.isEmpty}/>
+                    {this.state.playerExists
+                    ? <p>This username is already taken</p>
+                    : ''}
                 </form>
             </div>
 
