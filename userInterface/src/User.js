@@ -7,17 +7,9 @@ class User extends Component {
     }
 
     handleToggle = (e) => {
-        if(e.target.value === "Hide games") {
-            e.target.value = "Show games"
-            this.setState(() => ({
-                hidden: true
-            }))
-        } else {
-            e.target.value = "Hide games"
-            this.setState(() => ({
-                hidden: false
-            }))
-        }
+        this.setState((oldState) => ({
+            hidden: !oldState.hidden
+        }));
     };
 
     render() {
@@ -25,10 +17,10 @@ class User extends Component {
         return (
             <div className="user">
                 {this.state.hidden === true
-                ? <p>{this.props.username} played /* games</p>
-                : <p>{this.props.username} played {this.props.games} games</p>
+                ? (<p>{this.props.username} played /* games</p>)
+                : (<p>{this.props.username} played {this.props.games} games</p>)
                 }
-                <ToggleGames value="Hide games" onClick={this.handleToggle}/>
+                <ToggleGames toggle={this.handleToggle}/>
             </div>
         )
     };
