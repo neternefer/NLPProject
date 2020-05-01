@@ -20,7 +20,7 @@ class User extends Component {
                 ? (<p>{this.props.username} played /* games</p>)
                 : (<p>{this.props.username} played {this.props.games} games</p>)
                 }
-                <ToggleGames toggle={this.handleToggle}/>
+                <ToggleGames hide={this.state.hidden} toggle={this.handleToggle}/>
             </div>
         )
     };
