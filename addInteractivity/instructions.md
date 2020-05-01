@@ -21,13 +21,19 @@ React applications:
 1.  Is it passed in from a parent via props? If so, it probably isn’t state.
 
 2.  Does it remain unchanged over time? If so, it probably isn’t state.
+    Users array doesn't change over time, props -> create array in App.js as func
 
 3.  Can you compute it based on any other state or props in your component?
     If so, it isn’t state.
+    isDisabled can be computed based on message.text, color of msg can be computed
+    based on users.username, so does window h1 header
+4.  State:
+    Array of messages, individual message
 
 #### Step 4. Identify where each piece of state lives.
 
 1.  Identify every component that renders something based on that state.
+    MessageList renders array of messages, Message holds individual message
 
 2.  If multiple components need the same piece of state, put that piece of state into those components' parent-most component.
 
