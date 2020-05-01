@@ -12,18 +12,21 @@ class CreateUser extends Component {
     };
 
     handleChange = (e) => {
-        const value = e.target.value;
+        const { name, value } = e.target;
         console.log(value)
-        this.setState({
-            ...this.state.player,
-            [e.target.name]: value
-        })
+        this.setState((oldState) => ({
+            ...oldState,
+            player: {
+                ...oldState.player,
+                [name]: value
+            }
+        }))
     };
 
-    playerExists = (username) => {
-        for(const player in this.props.players) {
+    playerExists = (newUsername) => {
+        for(const player of this.props.players) {
             console.log(this.props.players)
-            if(player.username === username) {
+            if(player.username === newUsername) {
                 return true;
             }
         }
@@ -32,11 +35,8 @@ class CreateUser extends Component {
 
     isEmpty = () => {
         for(const player in this.props.players) {
-            if(!player.firstName || !player.lastName || !player.username) {
-                return true;
-            }
+           return(player.firstName === '' || player.lastName === '' || player.username === '')
         }
-        return false;
     };
 
     handleSubmit = (e) => {
@@ -44,10 +44,9 @@ class CreateUser extends Component {
         const playerExists = this.playerExists(this.state.player.username)
         if(!playerExists) {
             this.props.newPlayer(this.state.player)
-            console.log(this.props.players)
         }
         this.setState(() => ({
-            playerExists
+            playerExists,
         }))
     };
 
@@ -68,10 +67,11 @@ class CreateUser extends Component {
                     name="username" value={this.state.player.username}
                     onChange={this.handleChange}></input>
                     <AddUser disabled={this.isEmpty}/>
-                    {this.state.playerExists
-                    ? <p>This username is already taken</p>
-                    : ''}
                 </form>
+                {console.log(this.state.playerExists)}
+                    {this.state.playerExists
+                    ? (<p>This username is already taken</p>)
+                    : ('')}
             </div>
 
         )

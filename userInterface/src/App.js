@@ -19,9 +19,9 @@ class App extends Component {
   }
 
   newPlayer = (player) => {
-    this.gamesPlayed = 0;
+    player.gamesPlayed = 0;
     this.setState((oldState) => ({
-      players: ['BLA']//oldState.players.push(player)
+      players: [...oldState.players, player]//oldState.players.push(player)
     }))
     console.log(this.state.players)
   }
